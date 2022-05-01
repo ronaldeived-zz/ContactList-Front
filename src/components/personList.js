@@ -1,6 +1,6 @@
-import React, { Link } from 'react';
+import React from 'react';
 import api from '../services/api';
-import { Table, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 class PersonList extends React.Component {
     state = { person: [] };
@@ -17,9 +17,6 @@ class PersonList extends React.Component {
     render() {
         return (
             <>
-                <Link to="/addPerson">
-                    <Button variant="outline-primary">Add Person</Button>
-                </Link>
                 <PersonTable person={this.state.person} />
             </>
         )
@@ -45,6 +42,7 @@ class PersonTable extends React.Component {
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Picture</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>{rows}</tbody>
@@ -62,6 +60,7 @@ class PersonRow extends React.Component {
                 <td>{person.personId}</td>
                 <td>{person.firstName}</td>
                 <td>{person.lastName}</td>
+                <td>{person.picture}</td>
             </tr>
         );
     }

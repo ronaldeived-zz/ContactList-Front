@@ -1,16 +1,16 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
 import PersonList from "./personList";
-import AddPerson from "../pages/addPerson";
+import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 const Main = () => {
   return (
     <div className="ui fixed menu">
       <div className="ui container center">
-        <Router>
-            <Route exact path='/' element={<PersonList />} />
-            <Route exact path='/addPerson' element={<AddPerson />} />
-        </Router>
+        <Link to="/addPerson">
+          <Button variant="outline-primary">Add Person</Button>
+        </Link>
+        <PersonList />
       </div>
     </div>
   );
